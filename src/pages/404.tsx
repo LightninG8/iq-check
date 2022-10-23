@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import { MainLayout } from 'containers';
 import Head from 'next/head';
 
-const Recovery: NextPage = () => {
+const ErrorPage: NextPage = () => {
   return (
     <>
       <Head>
@@ -14,14 +14,14 @@ const Recovery: NextPage = () => {
         <meta name="msapplication-TileColor" content="#3e4480"/>
         <meta name="theme-color" content="#3e4480"/>
 
-        <title>Восстановить результат | Интеллект-тест</title>
+        <title>Такой страницы не существует</title>
       </Head>
       <MainLayout>
-        Hello world!
+        Error 404
       </MainLayout>
     </>
     
   );
 }
 
-export default Recovery;
+export default ErrorPage;

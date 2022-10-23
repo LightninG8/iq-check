@@ -1,5 +1,5 @@
 .header {
-  background-color: var(--background-color-blue);
+  background: var(--background-color-blue);
   color: var(--font-color-white);
 }
 

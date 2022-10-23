@@ -1,8 +1,13 @@
 import type { NextPage } from 'next';
 import { MainLayout } from 'containers';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
-const Recovery: NextPage = () => {
+const Certificate: NextPage = () => {
+  const router = useRouter();
+
+  const uuid = router.query.uuid;
+
   return (
     <>
       <Head>
@@ -14,14 +19,14 @@ const Recovery: NextPage = () => {
         <meta name="msapplication-TileColor" content="#3e4480"/>
         <meta name="theme-color" content="#3e4480"/>
 
-        <title>Восстановить результат | Интеллект-тест</title>
+        <title>Сертификат | Интеллект-тест</title>
       </Head>
       <MainLayout>
-        Hello world!
+        Certificate {uuid}
       </MainLayout>
     </>
     
   );
 }
 
-export default Recovery;
+export default Certificate;

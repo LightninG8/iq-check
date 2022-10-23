@@ -1,0 +1,7 @@
+.main {
+  min-height: calc(100vh - 90px);
+
+  background: var(--background-color-white);
+  color: var(--font-color-black);
+  font-size: 1.8rem;
+}

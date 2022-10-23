@@ -10,7 +10,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({children}: MainLayoutProp
   return (
     <>
       <Header />
-      <main>
+      <main className={s.main}>
         {children}
       </main>
     </>
