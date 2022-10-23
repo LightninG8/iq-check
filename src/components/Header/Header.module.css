@@ -1,23 +1,78 @@
 .header {
-  background: rgb(118, 118, 118);
+  background-color: var(--background-color-blue);
+  color: var(--font-color-white);
 }
 
 .header__body {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  height: 90px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  color: #ffffff;
 }
 
+.header__logo {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 10px;
+  align-items: center;
+
+  color: var(--font-color-white);
+}
+
+.logo__title {
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 2.8rem;
+}
+
+.logo__subtitle {
+  margin-top: 5px;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+}
+
+
 .nav__menu {
-  display: flex;
-  gap: 20px;
+  
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 20px;
+  
   list-style: none;
 }
 
-.nav__link {
-  color: #ffffff;
+
+.nav__button {
+  display: grid;
+  height: 50px;
+  padding: 0 30px;
+
+  color: var(--font-color-white);
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  align-items: center;
+  
+
+  border: 2px solid var(--background-color-white);
+  border-radius: 25px;
+  transition: var(--transition-default);
+}
+
+.nav__button_start {
+  background: var(--background-color-white);
+  color: var(--font-color-blue);
+
+  font-weight: bold;
+  font-size: 1.8rem;
+
+}
+
+.nav__button_start:hover {
+  background: none;
+  color: var(--font-color-white);
+}
+
+.nav__button_recovery:hover {
+  background: var(--background-color-white);
+  color: var(--font-color-blue);
 }
