@@ -7,9 +7,9 @@ import { useGetResultQuery } from 'ducks/api';
 const Certificate: NextPage = () => {
   const router = useRouter();
 
-  const uuid = router.query.uuid;
+  const _id = router.query._id;
 
-  const { data } = useGetResultQuery((uuid as string));
+  const { data } = useGetResultQuery((_id as string));
 
   return (
     <>

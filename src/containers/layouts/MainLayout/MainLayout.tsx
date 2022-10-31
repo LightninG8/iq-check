@@ -3,14 +3,15 @@ import cs from 'styles/common.module.css';
 import { Header } from 'components';
 
 type MainLayoutProps = {
-  children?: React.ReactNode
+  className?: string;
+  children?: React.ReactNode;
 }
 
-export const MainLayout: React.FC<MainLayoutProps> = ({children}: MainLayoutProps) => {
+export const MainLayout: React.FC<MainLayoutProps> = ({className, children}: MainLayoutProps) => {
   return (
     <>
       <Header />
-      <main className={s.main}>
+      <main className={s.main + ' ' + className}>
         {children}
       </main>
     </>

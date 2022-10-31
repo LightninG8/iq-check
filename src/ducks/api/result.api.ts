@@ -3,7 +3,7 @@ import { IUser } from 'models';
 
 export const resultApi = createApi({
   reducerPath: 'result',
-  baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:8080/'}),
+  baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:8080/api'}),
   endpoints: (build) => ({
     addResult: build.mutation<IUser, IUser>({
       query: (body) => ({
@@ -16,8 +16,11 @@ export const resultApi = createApi({
       }),
     }),
     getResult: build.query({
-      query: (uuid: string) => ({
-        url: `result/get_user?uuid=${uuid}`,
+      query: (_id: string) => ({
+        url: `/result`,
+        params: {
+          _id
+        }
       })
     })
   })
