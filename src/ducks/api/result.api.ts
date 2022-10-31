@@ -7,7 +7,7 @@ export const resultApi = createApi({
   endpoints: (build) => ({
     addResult: build.mutation<IUser, IUser>({
       query: (body) => ({
-        url: 'result/register',
+        url: '/result',
         method: 'POST',
         headers: {
           "Access-Control-Allow-Origin": "*"
@@ -22,10 +22,15 @@ export const resultApi = createApi({
           _id
         }
       })
+    }),
+    getResults: build.query({
+      query: () => ({
+        url: `/results`,
+      })
     })
   })
 });
 
-export const { useAddResultMutation, useGetResultQuery } = resultApi;
+export const { useAddResultMutation, useGetResultQuery, useGetResultsQuery } = resultApi;
 
 
