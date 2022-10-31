@@ -7,6 +7,8 @@ import s from './Certificate.module.css';
 import cs from 'styles/common.module.css';
 import axios from 'axios';
 import { useEffect } from 'react';
+import icon from './storage/golden.png';
+import Image from 'next/image';
 
 // TODO
 interface ICertificateProps {
@@ -14,14 +16,7 @@ interface ICertificateProps {
 }
 
 const Certificate: NextPage<ICertificateProps> = ({result}: ICertificateProps) => {
-  const router = useRouter();
 
-  // const id = router.query.id;
-
-  console.log(result);
-
-  // const { data, isLoading, isError } = useGetResultQuery(id as string);
-  
   return (
     <>
       <Head>
@@ -43,6 +38,9 @@ const Certificate: NextPage<ICertificateProps> = ({result}: ICertificateProps) =
           <p className={s.section__text}>
             Этот показатель IQ является оценкой. Ваша оценка может варьировать в зависимости от формы и условий, при которых вы проходили тест.
           </p>
+          <div className={s.section__icon}>
+            <Image className={s.section__icon} width={50} height={50} src={icon} alt="ITI" />
+          </div>
         </div>
       </MainLayout>
     </>

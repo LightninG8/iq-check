@@ -1,0 +1,30 @@
+.section__body {
+  position: relative;
+
+  padding-top: 20px;
+}
+
+.section__title {
+  font-weight: 700;
+  font-size: 5rem;
+  line-height: 6.3rem;
+}
+
+.section__subtitle {
+  margin-top: 5px;
+
+  font-weight: 500;
+  font-size: 2.5rem;
+  line-height: 3.1rem;
+}
+
+
+.section__text {
+  margin-top: 20px;
+}
+
+.section__icon {
+  position: absolute;
+  top: 25px;
+  right: 0;
+}
