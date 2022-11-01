@@ -2,13 +2,14 @@ import type { NextPage } from 'next';
 import { MainLayout } from 'containers';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { useGetResultQuery, useGetResultsQuery } from 'ducks/api';
+import { getResult, getResults, getRunningOperationPromises, resultApi, useGetResultQuery, useGetResultsQuery } from 'ducks/api';
 import s from './Certificate.module.css';
 import cs from 'styles/common.module.css';
 import axios from 'axios';
 import { useEffect } from 'react';
 import icon from './storage/golden.png';
 import Image from 'next/image';
+import { makeStore, wrapper } from 'ducks';
 
 // TODO
 interface ICertificateProps {
@@ -48,34 +49,31 @@ const Certificate: NextPage<ICertificateProps> = ({result}: ICertificateProps) =
   );
 }
 
-
-// TODO
 export const getServerSidePaths = async () => {
-  const response: any = await fetch('http://localhost:8080/api/results');
-  const results: any = await response.json().data;
+  const store = makeStore();
+  const result = await store.dispatch(getResults.initiate());
 
-  const paths = results.map((result: any) => ({params: {_id: result._id.toString()}}));
-
-
-  return {paths, fallback: 'blocking'};
-  
+  return {
+    paths: result.data.map((item: any) => ({params: {_id: item._id.toString()}})),
+    fallback: true,
+  };
 }
 
 export const getServerSideProps = async ({params}: any) => {
   try {
-    const { data } = (await axios.get(`http://localhost:8080/api/result?_id=${params._id}`)).data;
+    const store = makeStore();
+    const result = await store.dispatch(getResult.initiate(params._id));
 
     return {
       props: {
-        result: data
+        result: result.data.data
       }
-  }
+    }
   } catch (e) {
     return {
       notFound: true,
     }
   }
-  
 }
 
 
