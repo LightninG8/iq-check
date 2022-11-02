@@ -1,15 +1,22 @@
 import type { NextPage } from 'next';
 import { MainLayout } from 'containers';
 import Head from 'next/head';
-import s from './Recovery.module.css';
+import s from './Restore.module.css';
 import cs from 'styles/common.module.css';
-import { useState } from 'react';
+import { FormEventHandler, useState } from 'react';
+import { Button } from 'components';
+import { resultApi, useRestoreResultMutation } from 'ducks';
 
-const Recovery: NextPage = () => {
-  const [inputEmail, setInputEmail] = useState('');
+const Restore: NextPage = () => {
+  const [email, setEmail] = useState('');
+  const [trigger, result ] = useRestoreResultMutation();
 
-  const onSubmit = () => {
-    alert(inputEmail);
+  const { isError, error } = result;
+
+  const onSubmit: FormEventHandler<HTMLElement> = async (e) => {
+    e.preventDefault();
+
+    trigger(email);
   };
 
   return (
@@ -30,16 +37,22 @@ const Recovery: NextPage = () => {
                 className={s.form__input}
                 type="email"
                 placeholder="Введите ваш email"
-                value={inputEmail}
-                onChange={(e) => setInputEmail(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
-              <button
+              <Button
                 className={s.form__submit}
                 type="submit"
-              >Восстановить результат</button>
+              >Восстановить результат</Button>
             </form>
           </div>
+          {JSON.stringify(result)}
         </div>
+        {isError && (
+          <div>
+            Ошибка блять {JSON.stringify(error)}
+          </div>
+        )}
         
       </MainLayout>
     </>
@@ -47,4 +60,4 @@ const Recovery: NextPage = () => {
   );
 }
 
-export default Recovery;
+export default Restore;

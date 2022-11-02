@@ -4,14 +4,14 @@ import { useAppSelector } from 'hooks';
 import { useState } from 'react';
 import { useAddResultMutation, useGetResultQuery } from 'ducks/api';
 
-type QuizProps = {
+interface ITestProps {
 
 };
 
 
-export const Quiz: React.FC<QuizProps> = ({}: QuizProps) => {
+export const Test: React.FC<ITestProps> = ({}: ITestProps) => {
   const dispatch = useDispatch();
-  const { currentSlide } = useAppSelector((state) => state.quiz);
+  const { currentSlide } = useAppSelector((state) => state.test);
   const [addResult] = useAddResultMutation();
 
   const [email, setEmail] = useState<string>('');

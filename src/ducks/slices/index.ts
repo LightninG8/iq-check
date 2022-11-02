@@ -1,1 +1,1 @@
-export * from './quizReducer';
+export * from './testReducer';

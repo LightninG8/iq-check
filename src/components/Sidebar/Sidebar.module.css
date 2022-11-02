@@ -1,0 +1,27 @@
+.sidebar__body {
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 50px;
+
+}
+
+.sidebar__title {
+  font-weight: 500;
+  font-size: 1.8rem;
+  line-height: 124.1%;
+  /* or 22px */
+
+  text-align: center;
+}
+
+.sidebar__title_period {
+  font-weight: normal;
+  font-size: 1.4rem;
+}
+
+.sidebar__results {
+  margin-top: 10px;
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 20px;
+}

@@ -3,7 +3,7 @@ import { IUser } from 'models';
 import { HYDRATE } from "next-redux-wrapper";
 
 export const resultApi = createApi({
-  reducerPath: 'result',
+  reducerPath: 'resultApi',
   baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:8080/api'}),
   extractRehydrationInfo(action, { reducerPath }) {
     if (action.type === HYDRATE) {
@@ -51,11 +51,35 @@ export const resultApi = createApi({
         }
       })
     }),
+    restoreResult: build.mutation<any, any>({
+      query: (email: string) => ({
+        url: '/restore',
+        method: 'POST',
+        headers: {
+          "Access-Control-Allow-Origin": "*"
+        },
+        body: {
+          email
+        }
+      }),
+    })
   })
 });
 
-export const { useAddResultMutation, useGetResultQuery, useGetResultsQuery, util: { getRunningOperationPromises }, } = resultApi;
+export const {
+  useAddResultMutation,
+  useGetResultQuery,
+  useGetResultsQuery,
+  util: { getRunningOperationPromises },
+  useRestoreResultMutation
+} = resultApi;
 
 
 // export endpoints for use in SSR
-export const { getResults, getResult, getRecentResults, getTopResults } = resultApi.endpoints;
+export const {
+  getResults,
+  getResult,
+  getRecentResults,
+  getTopResults,
+  restoreResult,
+} = resultApi.endpoints;

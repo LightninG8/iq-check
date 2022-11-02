@@ -1,7 +1,16 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
 .main {
-  min-height: calc(100vh - 90px);
+  height: 100%;
 
   background: var(--background-color-white);
   color: var(--font-color-black);
   font-size: 1.8rem;
+
+  flex-grow: 2;
 }

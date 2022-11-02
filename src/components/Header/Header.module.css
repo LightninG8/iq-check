@@ -42,37 +42,30 @@
 }
 
 
-.nav__button {
-  display: grid;
-  height: 50px;
-  padding: 0 30px;
 
-  color: var(--font-color-white);
-  font-size: 1.6rem;
-  line-height: 1.9rem;
-  align-items: center;
-  
-
-  border: 2px solid var(--background-color-white);
-  border-radius: 25px;
-  transition: var(--transition-default);
-}
-
-.nav__button_start {
+button.nav__button_start {
   background: var(--background-color-white);
   color: var(--font-color-blue);
+  border-color: var(--background-color-white);
 
   font-weight: bold;
   font-size: 1.8rem;
-
 }
 
-.nav__button_start:hover {
+button.nav__button_start:hover {
   background: none;
   color: var(--font-color-white);
 }
 
-.nav__button_recovery:hover {
+button.nav__button_restore {
+  font-weight: normal;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  text-align: center;
+  border-color: var(--background-color-white);
+}
+
+button.nav__button_restore:hover {
   background: var(--background-color-white);
   color: var(--font-color-blue);
 }

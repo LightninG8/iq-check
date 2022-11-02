@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
-import { quizReducer } from "ducks/slices";
+import { testSlice } from "ducks/slices";
 import { resultApi } from "ducks/api";
 import { createWrapper } from "next-redux-wrapper";
 
@@ -8,7 +8,7 @@ import { createWrapper } from "next-redux-wrapper";
 export const makeStore = () => configureStore({
   reducer: {
     [resultApi.reducerPath]: resultApi.reducer,
-    quiz: quizReducer
+    [testSlice.name]: testSlice.reducer
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat(resultApi.middleware)
 });

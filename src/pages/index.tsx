@@ -3,8 +3,10 @@ import { MainLayout } from 'containers';
 import Head from 'next/head';
 import cs from 'styles/common.module.css';
 import s from 'styles/Home.module.css';
-import { Quiz } from 'containers/Quiz';
 import { getRecentResults, getRunningOperationPromises, getTopResults, wrapper } from 'ducks';
+import { Sidebar, TestPreview } from 'components';
+import { useAppSelector } from 'hooks';
+import { Test } from 'containers/Test';
 
 interface IHomeProps {
   recentResults: any;
@@ -12,7 +14,7 @@ interface IHomeProps {
 };
 
 const Home: NextPage<IHomeProps> = ({recentResults, topResults}) => {
-  console.log(recentResults, topResults);
+  const { isTestStarted } = useAppSelector((state) => state.test);
 
   return (
     <>
@@ -20,9 +22,15 @@ const Home: NextPage<IHomeProps> = ({recentResults, topResults}) => {
         <title>IQ Тест онлайн | Интеллект-тест</title>
       </Head>
       <MainLayout>
-        <section className={s.quiz}>
-          <div className={cs.container + ' ' + s.quiz__body}>
-
+        <section className={s.home}>
+          <div className={s.home__body + ' ' + cs.containerSmall}>
+            <Sidebar className={s.home__sidebar} recentResults={recentResults} topResults={topResults}/>
+            <div className={s.home__main}>
+              <div className={s.home__test}>
+                {!isTestStarted && <TestPreview />}
+                {isTestStarted && <Test />}
+              </div>
+            </div>
           </div>
         </section>
       </MainLayout>
@@ -40,8 +48,8 @@ export const getServerSideProps = wrapper.getServerSideProps((store) => async ()
 
     return {
       props: {
-        recentResults: recentResults.data.data,
-        topResults: topResults.data.data
+        recentResults: recentResults?.data?.data,
+        topResults: topResults?.data?.data
       },
     };
   }

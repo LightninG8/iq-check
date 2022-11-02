@@ -1,9 +1,6 @@
-.section {
-  
-}
-
 .section__body {
   padding-top: 100px;
+  padding-bottom: 50px;
 }
 
 
@@ -62,18 +59,4 @@
 
 .form__submit {
   margin-top: 30px;
-  padding: 20px 40px;
-
-  color: var(--font-color-white);
-  font-weight: 700;
-  font-size: 1.6rem;
-  line-height: 2rem;
-
-  background: var(--background-color-blue);
-  border: none;
-  border-radius: 40px;
-  outline: none;
-
-  cursor: pointer;
-
 }

@@ -1,6 +1,6 @@
 import s from './MainLayout.module.css';
 import cs from 'styles/common.module.css';
-import { Header } from 'components';
+import { Footer, Header } from 'components';
 
 type MainLayoutProps = {
   className?: string;
@@ -9,11 +9,12 @@ type MainLayoutProps = {
 
 export const MainLayout: React.FC<MainLayoutProps> = ({className, children}: MainLayoutProps) => {
   return (
-    <>
+    <div className={s.layout}>
       <Header />
       <main className={s.main + ' ' + className}>
         {children}
       </main>
-    </>
+      <Footer />
+    </div>
   )
 };
