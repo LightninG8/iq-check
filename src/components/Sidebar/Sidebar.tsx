@@ -11,8 +11,7 @@ interface ISidebarProps {
 
 export const Sidebar: React.FC<ISidebarProps> = ({className, recentResults, topResults}: ISidebarProps) => {
   const state = useAppSelector((state) => state);
-  
-  console.log(state);
+
   return (
     <aside className={className + ' ' + s.sidebar + ' ' + s.sidebar__body}>
       <div className={s.sidebar__row}>

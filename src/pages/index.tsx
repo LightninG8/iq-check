@@ -23,7 +23,7 @@ const Home: NextPage<IHomeProps> = ({recentResults, topResults}) => {
       </Head>
       <MainLayout>
         <section className={s.home}>
-          <div className={s.home__body + ' ' + cs.containerSmall}>
+          <div className={s.home__body + ' ' + cs.container}>
             <Sidebar className={s.home__sidebar} recentResults={recentResults} topResults={topResults}/>
             <div className={s.home__main}>
               <div className={s.home__test}>

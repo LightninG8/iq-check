@@ -3,21 +3,23 @@ import { MainLayout } from 'containers';
 import Head from 'next/head';
 import s from './Restore.module.css';
 import cs from 'styles/common.module.css';
-import { FormEventHandler, useState } from 'react';
+import { FormEventHandler, ReactNode, useState } from 'react';
 import { Button } from 'components';
 import { resultApi, useRestoreResultMutation } from 'ducks';
+import { useForm } from 'react-hook-form';
 
 const Restore: NextPage = () => {
   const [email, setEmail] = useState('');
   const [trigger, result ] = useRestoreResultMutation();
+  const { handleSubmit, register, formState: { errors } } = useForm();
 
   const { isError, error } = result;
 
-  const onSubmit: FormEventHandler<HTMLElement> = async (e) => {
-    e.preventDefault();
-
-    trigger(email);
+  const onSubmit = async (data: any) => {
+    await trigger(data.email);
   };
+
+  console.log(result);
 
   return (
     <>
@@ -31,29 +33,28 @@ const Restore: NextPage = () => {
             <p className={s.recovery__text}>Не волнуйтесь. Просто укажите адрес электронной почты, с которым вы связали свой результат, и мы вскоре отправим вам ссылку. Это бесплатно!</p>
             <form
               className={s.recovery__form + ' ' + s.form}
-              onSubmit={onSubmit}
+              onSubmit={handleSubmit(onSubmit)}
             >
               <input
                 className={s.form__input}
                 type="email"
                 placeholder="Введите ваш email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                {...register('email', {
+                  required: 'Необходимо заполнить «Email»',
+                  pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
+                })}
               />
+              { errors.email && <p className={s.form__message}>{(errors.email.message as ReactNode)}</p> }
+              { result.isSuccess && <p className={s.form__message}>Письмо отправлено на почту</p>}
+              { result.isError && <p> className={s.form__message}Результат не найден</p>}
+
               <Button
                 className={s.form__submit}
                 type="submit"
               >Восстановить результат</Button>
             </form>
           </div>
-          {JSON.stringify(result)}
         </div>
-        {isError && (
-          <div>
-            Ошибка блять {JSON.stringify(error)}
-          </div>
-        )}
-        
       </MainLayout>
     </>
     

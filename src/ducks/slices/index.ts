@@ -1,1 +1,1 @@
-export * from './testReducer';
+export * from './testSlice';

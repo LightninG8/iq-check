@@ -12,7 +12,7 @@ export const resultApi = createApi({
   },
   tagTypes: [],
   endpoints: (build) => ({
-    addResult: build.mutation<IUser, IUser>({
+    addResult: build.mutation<any, any>({
       query: (body) => ({
         url: '/result',
         method: 'POST',
