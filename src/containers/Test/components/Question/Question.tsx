@@ -28,7 +28,7 @@ export const Question: React.FC<IQuestionProps> = ({slide}: IQuestionProps) => {
     <div className={s.slide + ' ' + s.slide__body}>
       <div className={s.slide__title}>{slide?.question?.text}</div>
       <div className={s.slide__question}>
-        <Image src={slide?.question?.image} alt="question" />
+        <Image src={slide?.question?.image} alt="question" loading="eager"/>
       </div>
       <div className={s.slide__answers}>
         {slide?.answers?.map((item, i) => (
@@ -38,7 +38,7 @@ export const Question: React.FC<IQuestionProps> = ({slide}: IQuestionProps) => {
           >
             <div className={s.answer__index}>{i + 1}.</div>
             <div className={s.answer__image} onClick={() => onClick(item.value)}>
-              <Image src={item.image} alt="answer"/>
+              <Image src={item.image} alt="answer" loading="eager"/>
             </div>
           </div>
         ))}

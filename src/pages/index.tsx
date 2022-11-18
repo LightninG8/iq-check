@@ -4,7 +4,7 @@ import Head from 'next/head';
 import cs from 'styles/common.module.css';
 import s from 'styles/Home.module.css';
 import { getRecentResults, getRunningOperationPromises, getTopResults, wrapper } from 'ducks';
-import { Sidebar, TestPreview } from 'components';
+import { CelebritiesSlider, Sidebar, TestPreview } from 'components';
 import { useAppSelector } from 'hooks';
 import { Test } from 'containers/Test';
 
@@ -22,17 +22,22 @@ const Home: NextPage<IHomeProps> = ({recentResults, topResults}) => {
         <title>IQ Тест онлайн | Интеллект-тест</title>
       </Head>
       <MainLayout>
-        <section className={s.home}>
+        <div className={s.home}>
           <div className={s.home__body + ' ' + cs.container}>
             <Sidebar className={s.home__sidebar} recentResults={recentResults} topResults={topResults}/>
-            <div className={s.home__main}>
-              <div className={s.home__test}>
+            <main className={s.home__main}>
+              <section className={s.home__test}>
                 {!isTestStarted && <TestPreview />}
                 {isTestStarted && <Test />}
-              </div>
-            </div>
+              </section>
+              <section className={s.home__celebrities}>
+                <h2 className={s.home__title}>IQ рейтинг знаменитостей</h2>
+                <CelebritiesSlider/>
+              </section>
+              
+            </main>
           </div>
-        </section>
+        </div>
       </MainLayout>
     </>
     
@@ -48,8 +53,8 @@ export const getServerSideProps = wrapper.getServerSideProps((store) => async ()
 
     return {
       props: {
-        recentResults: recentResults?.data?.data,
-        topResults: topResults?.data?.data
+        recentResults: recentResults?.data?.data || [],
+        topResults: topResults?.data?.data || []
       },
     };
   }

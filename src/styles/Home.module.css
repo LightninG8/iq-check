@@ -6,9 +6,23 @@
   padding-bottom: 50px;
 }
 
+.home__title {
+  margin-bottom: 20px;
+
+  font-weight: 700;
+  font-size: 5rem;
+  line-height: 6.3rem;
+}
+
 .home__test {
   padding: 40px 60px;
 
   background: var(--background-color-light-blue);
   border-radius: 15px;
+}
+
+
+.home__celebrities {
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
