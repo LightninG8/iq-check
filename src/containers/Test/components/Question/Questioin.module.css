@@ -19,16 +19,22 @@
 
 .slide__answers {
   margin-top: 40px;
+  padding: 20px 40px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-column-gap: 110px;
-  grid-row-gap: 10px
+  grid-row-gap: 10px;
+
+
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
 }
 
 .answer__body {
   cursor: pointer;
-  width: 80px
+  width: 80px;
 
 }
 
