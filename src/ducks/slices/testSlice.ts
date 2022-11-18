@@ -10,7 +10,7 @@ interface ITestSlice {
 const initialState: ITestSlice = {
   currentSlide: 0,
   isTestStarted: false,
-  resultPoints: 0,
+  resultPoints: 40,
   isTestFinished: false,
 };
 
@@ -29,7 +29,11 @@ export const testSlice = createSlice({
       state.resultPoints += action.payload
     },
     resetTest: (state) => {
-      state = initialState;
+      console.log(initialState);
+  
+      state = {
+        ...state
+      };
     },
     finishTest: (state) => {
       state.isTestFinished = true;

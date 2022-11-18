@@ -10,6 +10,7 @@ import ratingImage from './storage/rating.svg';
 import { Button } from 'components';
 import { useAppDispatch } from 'hooks';
 import { startTest } from 'ducks';
+import { questionsListLength } from 'containers/Test/questionsList';
 
 
 interface ITestPreview {
@@ -32,7 +33,7 @@ export const TestPreview: React.FC<ITestPreview> = ({}: ITestPreview) => {
         </div>
         <div className={s.bar__item}>
           <Image src={questionImage} alt="question" />
-          <span>40 вопросов</span>
+          <span>{questionsListLength} вопросов</span>
         </div>
         <div className={s.bar__item}>
           <Image src={ageImage} alt="age" />

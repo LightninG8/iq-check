@@ -1,4 +1,6 @@
 .slide__body {
+  position: relative;
+
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -25,15 +27,15 @@
 }
 
 .answer__body {
-  display: grid;
-  align-items: center;
-  grid-template-columns: 10px 1fr;
-  grid-column-gap: 10px;
-
-}
-
-.answer__image {
   cursor: pointer;
   width: 80px
+
 }
 
+
+.slide__counter {
+  position: absolute;
+  left: 0.3rem;
+  top: 0.3rem;
+  font-size: 1.6rem;
+}

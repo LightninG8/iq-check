@@ -1,7 +1,6 @@
 import { Button } from "components";
-import { useAddResultMutation } from "ducks";
+import { resetTest, useAddResultMutation } from "ducks";
 import { useAppDispatch, useAppSelector } from "hooks";
-import { FormEventHandler } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import s from "./SendResultForm.module.css";
 import { useRouter } from 'next/router';
@@ -37,7 +36,11 @@ export const SendResultForm: React.FC<
       iq: resultPoints,
       countryCode: navigator.language.slice(-2)
     }).then((result: any) => {
-      router.push(`/certificate/${result.data?.data?._id}`);
+      dispatch(resetTest());
+
+      return result;
+    }).then((result: any) => {
+      window.location.href = `/certificate/${result.data?.data?._id}`;
     })
   };
 
