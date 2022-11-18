@@ -7,7 +7,7 @@
 .slide__body {
   display: grid;
   grid-template-rows: 190px 1fr auto;
-  height: 500px;
+  height: 450px;
 }
 
 .slide__header {
