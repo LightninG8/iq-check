@@ -33,6 +33,8 @@
   grid-column-gap: 15px;
   align-items: center;
 
+  font-size: 1.8rem;
+
   border-right: 2px solid var(--background-color-white); 
 }
 
@@ -51,6 +53,7 @@
   display: grid;
   grid-template-columns: 30px 1fr;
   grid-column-gap: 12px;
+  font-size: 1.8rem;
 }
 
 .description__image {

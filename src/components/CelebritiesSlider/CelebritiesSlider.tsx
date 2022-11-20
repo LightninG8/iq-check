@@ -8,10 +8,10 @@ import { celebritiesList } from './constants';
 
 
 interface ICelebritiesSliderProps {
-
+  className?: string;
 }
 
-export const CelebritiesSlider: React.FC<ICelebritiesSliderProps> = ({}: ICelebritiesSliderProps) => {
+export const CelebritiesSlider: React.FC<ICelebritiesSliderProps> = ({className}: ICelebritiesSliderProps) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -24,7 +24,7 @@ export const CelebritiesSlider: React.FC<ICelebritiesSliderProps> = ({}: ICelebr
   };
 
   return (
-    <div className={s.slider}>
+    <div className={s.slider + ' ' + className}>
       <Slider {...settings}>
           {celebritiesList.map((props) => (
             <Slide key={props.name} {...props}/>

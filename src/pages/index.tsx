@@ -4,7 +4,7 @@ import Head from 'next/head';
 import cs from 'styles/common.module.css';
 import s from 'styles/Home.module.css';
 import { getRecentResults, getRunningOperationPromises, getTopResults, wrapper } from 'ducks';
-import { CelebritiesSlider, Sidebar, TestPreview } from 'components';
+import { CelebritiesSlider, Sidebar, TestPreview, Charts } from 'components';
 import { useAppSelector } from 'hooks';
 import { Test } from 'containers/Test';
 
@@ -32,7 +32,13 @@ const Home: NextPage<IHomeProps> = ({recentResults, topResults}) => {
               </section>
               <section className={s.home__celebrities}>
                 <h2 className={s.home__title}>IQ рейтинг знаменитостей</h2>
-                <CelebritiesSlider/>
+                <CelebritiesSlider className={s.home__slider}/>
+              </section>
+              <section className={s.home__average}>
+                <h2 className={s.home__title}>Среднестатистические показатели IQ</h2>
+                <p className={s.home__description}>К каждому из результатов после прохождения нашего международного теста IQ добавляется статистическая информация, в которой каждый, проходящий тестирование, занимает место в соответствии с определенными показателями (населения, возрастная группа, образование, сфера знаний).</p>
+                <p className={s.home__description}>Представленные статистические данные сформированы из собранной на данный момент информации в рамках всего мира, в дальнейшем мы продолжим получать статистику прохождения тестов населением, и сможем актуализировать показатели.</p>
+                <Charts className={s.home__charts} />
               </section>
               
             </main>

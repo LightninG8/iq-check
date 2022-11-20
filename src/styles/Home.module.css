@@ -7,11 +7,13 @@
 }
 
 .home__title {
-  margin-bottom: 20px;
-
   font-weight: 700;
-  font-size: 5rem;
-  line-height: 6.3rem;
+  font-size: 4rem;
+  line-height: 5rem;
+}
+
+.home__slider {
+  margin-top: 20px;
 }
 
 .home__test {
@@ -25,4 +27,17 @@
 .home__celebrities {
   padding-top: 60px;
   padding-bottom: 60px;
+}
+
+
+.home__average {
+  padding-top: 20px;
+}
+
+.home__charts {
+  margin-top: 20px;
+}
+
+.home__description {
+  margin-top: 20px;
 }

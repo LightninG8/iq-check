@@ -41,7 +41,7 @@ export const TestPreview: React.FC<ITestPreview> = ({}: ITestPreview) => {
         </div>
         <div className={s.bar__item}>
           <Image src={ratingImage} alt="rating" />
-          <span>≈100 IQ</span>
+          <span>≈ 100 IQ</span>
         </div>
       </div>
       <div className={s.section__description + ' ' + s.description}>

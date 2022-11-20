@@ -1,8 +1,5 @@
-.sidebar__body {
-  display: grid;
-  grid-auto-flow: row;
-  grid-row-gap: 50px;
-
+.sidebar__row {
+  margin-bottom: 50px;
 }
 
 .sidebar__title {

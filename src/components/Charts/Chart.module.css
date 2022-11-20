@@ -1,0 +1,9 @@
+.chart__body {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.chart__title {
+  font-size: 2rem;
+  text-align: center;
+}

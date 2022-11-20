@@ -12,7 +12,11 @@ export const SidebarResult: React.FC<ISidebarProps> = ({result}: ISidebarProps) 
     <div className={s.result + ' ' + s.result__body}>
       <div className={s.result__image} style={{ backgroundImage: `url(/images/flags/${result.countryCode}.png)` }}></div>
       <div className={s.result__info}>
-        <div className={s.result__value}>{result.name} · <strong>{result.iq} IQ</strong></div>
+        <div className={s.result__value}>
+          <span className={s.result__name}>{result.name.split(' ')[0]}</span> 
+          <span className={s.result__dot}>·</span>
+          <strong className={s.result__iq}>{result.iq} IQ</strong>
+        </div>
         <div className={s.result__date}>{date}</div>
       </div>
     </div>
