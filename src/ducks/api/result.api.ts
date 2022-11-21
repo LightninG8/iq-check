@@ -1,10 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { COMMON_API_ADRESS } from 'commonConstants';
 import { IUser } from 'models';
 import { HYDRATE } from 'next-redux-wrapper';
 
 export const resultApi = createApi({
   reducerPath: 'resultApi',
-  baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:8080/api'}),
+  baseQuery: fetchBaseQuery({baseUrl: `${COMMON_API_ADRESS}`}),
   extractRehydrationInfo(action, { reducerPath }) {
     if (action.type === HYDRATE) {
       return action.payload[reducerPath];

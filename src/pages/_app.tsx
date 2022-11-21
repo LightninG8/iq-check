@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux';
 import { store, wrapper } from 'ducks';
 import Head from 'next/head';
+import { YMInitializer } from 'react-yandex-metrika';
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -23,6 +24,7 @@ function App({ Component, pageProps }: AppProps) {
         <meta name='description' content='Международный тест на IQ'/>
       </Head>
       <Provider store={store}>
+        <YMInitializer accounts={[91307164]} options={{webvisor: true}} version="2" />
         <Component {...pageProps} />
       </Provider>
     </>
