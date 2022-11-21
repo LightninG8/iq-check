@@ -10,7 +10,7 @@ export const SidebarResult: React.FC<ISidebarProps> = ({result}: ISidebarProps) 
 
   return (
     <div className={s.result + ' ' + s.result__body}>
-      <div className={s.result__image} style={{ backgroundImage: `url(/images/flags/${result.countryCode}.png)` }}></div>
+      <div className={s.result__image} style={{ backgroundImage: `url(/images/flags/${result.countryCode.toLowerCase()}.png)` }}></div>
       <div className={s.result__info}>
         <div className={s.result__value}>
           <span className={s.result__name}>{result.name.split(' ')[0]}</span> 
