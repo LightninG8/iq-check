@@ -7,3 +7,11 @@
   font-size: 2rem;
   text-align: center;
 }
+
+.chart__chart {
+  margin-top: 10px;
+}
+
+.chart__body_gender {
+  grid-column: 1/3;
+}

@@ -5,25 +5,25 @@ import { backgroundOpacityColors, backgroundColors } from "../../constants";
 
 import s from '../../Chart.module.css';
 
-
-export const AgeChart = () => {
+export const GenderChart = () => {
   const options = {
+    indexAxis: 'y' as const,
     responsive: true,
     maintainAspectRatio: false,
   };
 
   const [data, setData] = useState({
-    labels: ["< 18 лет", "18-39 лет", "40-59 лет", '60-79 лет', '> 80 лет'],
+    labels: ["Мужчины", "Женщины"],
     datasets: [{
-        data: [92, 98, 97, 92, 74],
-        label: 'Средний показатель IQ',
+        data: [99, 96],
         backgroundColor: backgroundColors,
+        label: 'Средний уровень IQ'
     }]
   });
 
   return (
-    <div className={s.chart + ' ' + s.chart__body}>
-      <h6 className={s.chart__title}>Уровень IQ по возрасту</h6>
+    <div className={s.chart + ' ' + s.chart__body + ' ' + s.chart__body_gender}>
+      <h6 className={s.chart__title}>Уровень IQ у мужчин и женщин</h6>
       <div className={s.chart__chart}>
         <Bar data={data} options={options}/>
       </div>

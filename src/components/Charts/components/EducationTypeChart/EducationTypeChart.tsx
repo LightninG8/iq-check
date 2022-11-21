@@ -25,7 +25,7 @@ export const EducationTypeChart = () => {
   return (
     <div className={s.chart + ' ' + s.chart__body}>
       <h6 className={s.chart__title}>Распределение по отношению к области знаний</h6>
-      <div>
+      <div className={s.chart__chart}>
         <Bar data={data} options={options}/>
       </div>
     </div>

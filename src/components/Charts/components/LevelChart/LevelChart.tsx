@@ -23,7 +23,7 @@ export const LevelChart = () => {
   return (
     <div className={s.chart + ' ' + s.chart__body}>
       <h6 className={s.chart__title}>Международный уровень показателей IQ</h6>
-      <div>
+      <div className={s.chart__chart}>
         <Pie data={data} options={options}/>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { Chart, BarElement, CategoryScale, ArcElement, Legend, LinearScale, Title, Tooltip } from "chart.js";
 
-import { AgeChart, EducationLevelChart, EducationTypeChart, LevelChart } from "./components"
+import { AgeChart, EducationLevelChart, EducationTypeChart, GenderChart, LevelChart } from "./components"
 
 import s from './Charts.module.css';
 
@@ -25,6 +25,7 @@ export const Charts = ({className}: IChartsProps) => {
       <AgeChart/>
       <EducationLevelChart/>
       <EducationTypeChart/>
+      <GenderChart/>
 
     </div>
   )
