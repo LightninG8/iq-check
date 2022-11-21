@@ -1,12 +1,18 @@
-import { S } from "chart.js/dist/chunks/helpers.core";
-import { useState } from "react";
-import { Bar } from "react-chartjs-2";
-import { backgroundOpacityColors, backgroundColors } from "../../constants";
+import { S } from 'chart.js/dist/chunks/helpers.core';
+import { useState } from 'react';
+import { Bar } from 'react-chartjs-2';
+import { backgroundOpacityColors, backgroundColors } from '../../constants';
 
 import s from '../../Chart.module.css';
+import { educationTypes } from 'commonConstants';
+import { IResult } from 'interfaces';
+import { resourceLimits } from 'worker_threads';
 
+interface IEducationTypeChartProps {
+  result?: IResult;
+}
 
-export const EducationTypeChart = () => {
+export const EducationTypeChart = ({result}: IEducationTypeChartProps) => {
   const options = {
     indexAxis: 'y' as const,
     responsive: true,
@@ -14,13 +20,16 @@ export const EducationTypeChart = () => {
   };
 
   const [data, setData] = useState({
-    labels: ["Сельскохозяйственная школа", "Архитектура и планирование", "Искусство и дизайн", 'Торговля и управление', 'Образование', 'Техника и технологии', 'География и геология', 'Литература и культура', 'Языки и филология', 'Право', 'Математика и ИТ', 'Медицинские науки', 'Естественные науки', 'Социальные науки', 'Коммуникация и информация'],
+    labels: educationTypes.labels,
     datasets: [{
-        data: [85, 99, 97, 97, 92, 102, 92, 93, 97, 94, 103, 99, 102, 98, 94],
+        data: educationTypes.data,
         backgroundColor: backgroundColors,
         label: 'Средний показатель IQ'
     }]
   });
+
+  const resultAffiliationPercent = result ? Math.floor(100 - (result.iq / 145 * 100)) : 0;
+  const resultSuperiorityPercent = 100 - resultAffiliationPercent;
 
   return (
     <div className={s.chart + ' ' + s.chart__body}>
@@ -28,6 +37,9 @@ export const EducationTypeChart = () => {
       <div className={s.chart__chart}>
         <Bar data={data} options={options}/>
       </div>
+      {result && (
+        <div className={s.chart__result}>Вы принадлежите к {resultAffiliationPercent}% самых умных людей принадлежащих вашей области знаний ({result.educationType}). Вы умнее, чем {resultSuperiorityPercent}% людей принадлежащих вашей области знаний.</div>
+      )}
     </div>
   );
 }

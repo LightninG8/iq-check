@@ -28,26 +28,26 @@ export const TestPreview: React.FC<ITestPreview> = ({}: ITestPreview) => {
       </div>
       <div className={s.section__bar + ' ' + s.bar}>
         <div className={s.bar__item}>
-          <Image src={timeImage} alt="time" />
+          <Image src={timeImage} alt='time' />
           <span>20 минут</span>
         </div>
         <div className={s.bar__item}>
-          <Image src={questionImage} alt="question" />
+          <Image src={questionImage} alt='question' />
           <span>{questionsListLength} вопросов</span>
         </div>
         <div className={s.bar__item}>
-          <Image src={ageImage} alt="age" />
+          <Image src={ageImage} alt='age' />
           <span>18+</span>
         </div>
         <div className={s.bar__item}>
-          <Image src={ratingImage} alt="rating" />
+          <Image src={ratingImage} alt='rating' />
           <span>≈ 100 IQ</span>
         </div>
       </div>
       <div className={s.section__description + ' ' + s.description}>
         <div className={s.description__item}>
           <div className={s.description__image}>
-            <Image src={circlesImage} alt="circles" />
+            <Image src={circlesImage} alt='circles' />
           </div>
           <p className={s.description__text}>
             Тест от IQ-Check состоит из 40 вопросов. После прохождения теста вы получите результат IQ по отношению к населению, основанный на статистических данных.
@@ -55,7 +55,7 @@ export const TestPreview: React.FC<ITestPreview> = ({}: ITestPreview) => {
         </div>
         <div className={s.description__item}>
           <div className={s.description__image}>
-            <Image src={awardImage} alt="award" />
+            <Image src={awardImage} alt='award' />
           </div>
           <p className={s.description__text}>
             Вопросы на основе изображений
@@ -63,7 +63,7 @@ export const TestPreview: React.FC<ITestPreview> = ({}: ITestPreview) => {
         </div>
         <div className={s.description__item}>
           <div className={s.description__image}>
-            <Image src={awardImage} alt="award" />
+            <Image src={awardImage} alt='award' />
           </div>
           <p className={s.description__text}>
             Получите сертификат со своим IQ, а также профессиональный отчет.

@@ -28,14 +28,14 @@ const Recovery: NextPage = () => {
             >
               <input
                 className={s.form__input}
-                type="email"
-                placeholder="Введите ваш email"
+                type='email'
+                placeholder='Введите ваш email'
                 value={inputEmail}
                 onChange={(e) => setInputEmail(e.target.value)}
               />
               <button
                 className={s.form__submit}
-                type="submit"
+                type='submit'
               >Восстановить результат</button>
             </form>
           </div>

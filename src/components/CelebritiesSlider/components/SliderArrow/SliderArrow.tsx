@@ -1,11 +1,18 @@
+import { MouseEventHandler } from 'react'
 import s from './SliderArrow.module.css'
 
-export const SliderArrow: React.FC<any> = (props: any) => {
+interface ISliderArrowProps {
+  style: object,
+  className: string,
+  onClick: MouseEventHandler<any>
+}
+
+export const SliderArrow: React.FC<any> = ({style, className, onClick}: ISliderArrowProps) => {
   return (
     <div
-      {...props}
-      className={props.className + ' ' + s.arrow}  
-      style={{ ...props.style, display: "block" }}
+      className={className + ' ' + s.arrow}  
+      style={{ ...style, display: 'block' }}
+      onClick={onClick}
     />
       
   )

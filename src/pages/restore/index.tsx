@@ -37,8 +37,8 @@ const Restore: NextPage = () => {
             >
               <input
                 className={s.form__input}
-                type="email"
-                placeholder="Введите ваш email"
+                type='email'
+                placeholder='Введите ваш email'
                 {...register('email', {
                   required: 'Необходимо заполнить «Email»',
                   pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
@@ -50,7 +50,7 @@ const Restore: NextPage = () => {
 
               <Button
                 className={s.form__submit}
-                type="submit"
+                type='submit'
               >Восстановить результат</Button>
             </form>
           </div>

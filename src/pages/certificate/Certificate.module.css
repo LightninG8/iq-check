@@ -2,6 +2,7 @@
   position: relative;
 
   padding-top: 20px;
+  padding-bottom: 60px;
 }
 
 .section__title {
@@ -27,4 +28,8 @@
   position: absolute;
   top: 25px;
   right: 0;
+}
+
+.section__charts {
+  margin-top: 40px;
 }

@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { IUser } from 'models';
-import { HYDRATE } from "next-redux-wrapper";
+import { HYDRATE } from 'next-redux-wrapper';
 
 export const resultApi = createApi({
   reducerPath: 'resultApi',
@@ -17,7 +17,7 @@ export const resultApi = createApi({
         url: '/result',
         method: 'POST',
         headers: {
-          "Access-Control-Allow-Origin": "*"
+          'Access-Control-Allow-Origin': '*'
         },
         body
       }),
@@ -56,7 +56,7 @@ export const resultApi = createApi({
         url: '/restore',
         method: 'POST',
         headers: {
-          "Access-Control-Allow-Origin": "*"
+          'Access-Control-Allow-Origin': '*'
         },
         body: {
           email

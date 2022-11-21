@@ -1,8 +1,8 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { setupListeners } from "@reduxjs/toolkit/dist/query";
-import { testSlice } from "ducks/slices";
-import { resultApi } from "ducks/api";
-import { createWrapper } from "next-redux-wrapper";
+import { configureStore } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/dist/query';
+import { testSlice } from 'ducks/slices';
+import { resultApi } from 'ducks/api';
+import { createWrapper } from 'next-redux-wrapper';
 
 
 export const makeStore = () => configureStore({

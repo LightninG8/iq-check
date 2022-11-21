@@ -1,11 +1,17 @@
-import { useState } from "react";
-import { Bar } from "react-chartjs-2";
-import { backgroundOpacityColors, backgroundColors } from "../../constants";
+import { useState } from 'react';
+import { Bar } from 'react-chartjs-2';
+import { backgroundOpacityColors, backgroundColors } from '../../constants';
 
 
 import s from '../../Chart.module.css';
+import { educationLevels } from 'commonConstants';
+import { IResult } from 'interfaces';
 
-export const EducationLevelChart = () => {
+interface IEducationLevelChartProps {
+  result?: IResult;
+}
+
+export const EducationLevelChart = ({result}: IEducationLevelChartProps) => {
 
   const options = {
     responsive: true,
@@ -13,13 +19,16 @@ export const EducationLevelChart = () => {
   };
 
   const [data, setData] = useState({
-    labels: ["Без диплома", "Диплом средней школы", "2 года высшего образования", '3 года высшего образования', '4 года высшего образования', '5 лет высшего образования', 'Больше 5 лет высшего образования'],
+    labels: educationLevels.labels,
     datasets: [{
-        data: [90, 94, 97, 99, 100, 101, 99],
+        data: educationLevels.data,
         label: 'Средний показатель IQ',
         backgroundColor: backgroundColors,
     }]
   });
+
+  const resultAffiliationPercent = result ? Math.floor(100 - (result.iq / 145 * 100)) : 0;
+  const resultSuperiorityPercent = 100 - resultAffiliationPercent;
 
   return (
     <div className={s.chart + ' ' + s.chart__body}>
@@ -27,6 +36,9 @@ export const EducationLevelChart = () => {
       <div className={s.chart__chart}>
         <Bar data={data} options={options}/>
       </div>
+      {result && (
+        <div className={s.chart__result}>Вы принадлежите к {resultAffiliationPercent}% самых умных людей вашего уровня образования ({result.educationLevel}). Вы умнее, чем {resultSuperiorityPercent}% людей вашего уровня образования.</div>
+      )}
     </div>
   );
 }
