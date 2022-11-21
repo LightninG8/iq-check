@@ -14,10 +14,14 @@
   position: static;
 }
 
+
 .slider :global(.slick-dots button:before){
+  width: 15px;
+  height: 15px;
+
   content: '';
   opacity: 0.15;
-  border: 5px solid var(--background-color-blue);
+  border: 3px solid var(--background-color-blue);
   border-radius: 50%;
 }
 
