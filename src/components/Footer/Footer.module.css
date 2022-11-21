@@ -6,3 +6,22 @@
   padding-top: 30px;
   padding-bottom: 30px;
 }
+
+.footer__menu {
+  list-style: none;
+
+  display: grid;
+  justify-content: start;
+  grid-auto-flow: column;
+  grid-column-gap: 20px;
+}
+
+.footer__link {
+  color: var(--font-color-white);
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+
+.footer__link:hover {
+  text-decoration: underline;
+}
