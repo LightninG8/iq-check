@@ -1,5 +1,6 @@
 .result__body {
   display: grid;
+  align-items: center;
   grid-template-columns: auto 1fr;
   grid-column-gap: 20px;
 }
@@ -49,4 +50,35 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+
+@media screen and (max-width: 1240px) {
+  .result__image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .result__body {
+    grid-column-gap: 10px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .result__body,
+  .result * {
+    min-width: auto;
+  }
+
+  .result__name {
+    overflow: initial;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .result__image {
+    width: 30px;
+    height: 30px;
+  }
 }

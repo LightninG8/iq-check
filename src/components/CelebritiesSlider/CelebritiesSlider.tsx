@@ -21,6 +21,22 @@ export const CelebritiesSlider: React.FC<ICelebritiesSliderProps> = ({className}
     className: s.slider__body,
     nextArrow: <SliderArrow />,
     prevArrow: <SliderArrow />,
+    responsive: [
+      {
+        breakpoint: 1240,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        }
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      },
+    ]
   };
 
   return (

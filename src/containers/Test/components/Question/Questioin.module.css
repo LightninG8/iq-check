@@ -45,3 +45,28 @@
   top: 0.3rem;
   font-size: 1.6rem;
 }
+
+
+@media screen and (max-width: 768px) {
+  .answer__body {
+    width: 50px;
+  }
+  
+  .slide__title {
+    font-size: 1.8rem;
+  }
+
+  .slide__answers {
+    padding: 15px 30px;
+    grid-column-gap: 50px;
+  }
+
+  .slide__question {
+    width: 200px;
+  }
+
+  .slide__counter {
+    top: 0;
+    font-size: 1.2rem;
+  }
+}

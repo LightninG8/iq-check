@@ -18,7 +18,10 @@ export const Slide: React.FC<ISlideProps> = ({name, description, image, iq}: ISl
         <p className={s.slide__description}>{description}</p>
       </div>
       <div className={s.slide__footer}>
-        <Image src={brainImg} alt='iq' loading='eager'/>
+        <div className={s.slide__icon}>
+          <Image src={brainImg} alt='iq' loading='eager'/>
+        </div>
+        
         <div className={s.slide__iq}>{iq} IQ</div>
       </div>
     </div>

@@ -3,41 +3,19 @@ import { MainLayout } from 'containers';
 import Head from 'next/head';
 import s from './Contacts.module.css';
 import cs from 'styles/common.module.css';
-import { useState } from 'react';
 
-const Recovery: NextPage = () => {
-  const [inputEmail, setInputEmail] = useState('');
-
-  const onSubmit = () => {
-    alert(inputEmail);
-  };
+const Contacts: NextPage = () => {
 
   return (
     <>
       <Head>
-        <title>Восстановить результат | Интеллект-тест</title>
+        <title>Контакты | Интеллект-тест</title>
       </Head>
       <MainLayout className={s.section}>
-        <div className={cs.container + ' ' + s.section__body}>
-          <div className={s.recovery + ' ' + s.recovery__body}>
-            <h1 className={s.recovery__title}>Вы потеряли свой результат?</h1>
-            <p className={s.recovery__text}>Не волнуйтесь. Просто укажите адрес электронной почты, с которым вы связали свой результат, и мы вскоре отправим вам ссылку. Это бесплатно!</p>
-            <form
-              className={s.recovery__form + ' ' + s.form}
-              onSubmit={onSubmit}
-            >
-              <input
-                className={s.form__input}
-                type='email'
-                placeholder='Введите ваш email'
-                value={inputEmail}
-                onChange={(e) => setInputEmail(e.target.value)}
-              />
-              <button
-                className={s.form__submit}
-                type='submit'
-              >Восстановить результат</button>
-            </form>
+        <div className={cs.container + ' ' + cs.container__wrapper}>
+          <div className={s.contacts + ' ' + s.contacts__body}>
+            <h1 className={cs.title}>Контакты</h1>
+            <p className={cs.container__paragraph}>Email: intellect.test.ru@gmail.com</p>
           </div>
         </div>
         
@@ -47,4 +25,4 @@ const Recovery: NextPage = () => {
   );
 }
 
-export default Recovery;
+export default Contacts;

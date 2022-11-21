@@ -38,3 +38,15 @@
   grid-row-gap: 10px;
 
 }
+
+
+@media screen and (max-width: 576px) {
+  .slider :global(.slick-dots button:before){
+    width: 10px;
+    height: 10px;
+  }
+
+  .slider :global(.slick-dots li){
+    margin: 0;
+  }
+}
