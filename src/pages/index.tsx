@@ -7,6 +7,7 @@ import { getRecentResults, getRunningOperationPromises, getTopResults, wrapper }
 import { CelebritiesSlider, Sidebar, TestPreview, Charts } from 'components';
 import { useAppSelector } from 'hooks';
 import { Test } from 'containers/Test';
+import { COMMON_API_ADRESS } from 'commonConstants';
 
 interface IHomeProps {
   recentResults: any;
@@ -67,15 +68,15 @@ const Home: NextPage<IHomeProps> = ({recentResults, topResults}) => {
 
 
 export const getServerSideProps = wrapper.getServerSideProps((store) => async () => {
-    const recentResults = await store.dispatch(getRecentResults.initiate(20));
-    const topResults = await store.dispatch(getTopResults.initiate({days: 7, limit: 3}));
-
-    await Promise.all(getRunningOperationPromises());
+    
+    const recentResults = await fetch(`${COMMON_API_ADRESS}/recent?limit=20`).then((data) => data.json())
+    
+    const topResults = await fetch(`${COMMON_API_ADRESS}/recent?days=7&limit=3`).then((data) => data.json())
 
     return {
       props: {
-        recentResults: recentResults?.data?.data || [],
-        topResults: topResults?.data?.data || []
+        recentResults: recentResults?.data || [],
+        topResults: topResults?.data || []
       },
     };
   }
