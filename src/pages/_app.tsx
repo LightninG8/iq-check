@@ -6,7 +6,10 @@ import { store, wrapper } from 'ducks';
 import Head from 'next/head';
 import { YMInitializer } from 'react-yandex-metrika';
 
-function App({ Component, pageProps }: AppProps) {
+function App({ Component, ...rest }: AppProps) {
+  const { store, props } = wrapper.useWrappedStore(rest);
+  const { pageProps } = props;
+
   return (
     <>
       <Head>
@@ -24,8 +27,8 @@ function App({ Component, pageProps }: AppProps) {
         <meta name='description' content='Международный тест на IQ'/>
       </Head>
       <Provider store={store}>
-        <YMInitializer accounts={[91307164]} options={{webvisor: true}} version="2" />
-        <Component {...pageProps} />
+          <YMInitializer accounts={[91307164]} options={{webvisor: true}} version="2" />
+          <Component {...pageProps} />
       </Provider>
     </>
   )
